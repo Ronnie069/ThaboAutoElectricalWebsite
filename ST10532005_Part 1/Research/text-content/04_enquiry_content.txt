@@ -1,0 +1,18 @@
+BOOKING INSTRUCTIONS:
+Please fill out the enquiry form below to request a service appointment or a repair cost estimate. Our technical team will review your details and respond within 24 hours.
+
+FORM FIELD LABELS & DROPDOWN OPTIONS:
+
+1. Customer Full Name
+2. Contact Phone Number
+3. Email Address
+4. Vehicle Make & Model (e.g., Toyota HiAce / Ford Ranger)
+5. Service Required:
+   - Computer Diagnostics & Fault Scan
+   - Battery Testing & Replacement
+   - Alternator / Starter Motor Repairs
+   - Wiring & Short Circuit Troubleshooting
+   - Security, Alarm & Tracking Installation
+   - General Electrical Inspection
+6. Preferred Service Date
+7. Detailed Description of Issue
