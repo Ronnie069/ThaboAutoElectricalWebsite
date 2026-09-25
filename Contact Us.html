@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thabo's Auto Electrical | Contact Us</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,16 +25,23 @@
 
     <!-- Website Navigation -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="Services.html">Services</a>
-        <a href="Enquiry.html">Enquiry</a>
-        <a href="Contact%20Us.html">Contact Us</a>
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span class="bar"></span>
+            Menu
+        </label>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Enquiry.html">Enquiry</a>
+            <a href="Contact%20Us.html" class="current-page">Contact Us</a>
+        </div>
     </nav>
 
-    <!-- Main Page Content -->
-    <main>
- <div class="two-col">
+    <!-- Main Page Content: info card grid -->
+    <main class="contact-main">
+
         <section>
             <h2>Workshop Address</h2>
             <p>
@@ -45,13 +59,12 @@
                 Email: <a href="mailto:rkmukanya27@gmail.com">rkmukanya27@gmail.com</a>
             </p>
         </section>
-  </div>
 
         <section>
             <h2>Operating Hours</h2>
             <p>
-                Monday – Friday: 08:00 – 17:00<br>
-                Saturday: 08:00 – 13:00<br>
+                Monday &ndash; Friday: 08:00 &ndash; 17:00<br>
+                Saturday: 08:00 &ndash; 13:00<br>
                 Sunday &amp; Public Holidays: Closed
             </p>
         </section>
@@ -63,7 +76,7 @@
                 the suburban logistics depot.
             </p>
             <!-- Map embed placeholder: to be replaced with a real Google Maps
-                 embed using the GPS coordinates below once styling/JS is added -->
+                 embed using the GPS coordinates below once JS is added (Part 3) -->
             <p><em>GPS Coordinates: -26.2041, 28.0473</em></p>
         </section>
 

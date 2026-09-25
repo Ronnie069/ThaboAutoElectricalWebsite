@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thabo's Auto Electrical | Services</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,47 +25,57 @@
 
     <!-- Website Navigation -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="Services.html">Services</a>
-        <a href="Enquiry.html">Enquiry</a>
-        <a href="Contact%20Us.html">Contact Us</a>
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span class="bar"></span>
+            Menu
+        </label>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Services.html" class="current-page">Services</a>
+            <a href="Enquiry.html">Enquiry</a>
+            <a href="Contact%20Us.html">Contact Us</a>
+        </div>
     </nav>
 
-    <!-- Main Page Content -->
-    <main>
+    <!-- Main Page Content: card grid, one section per service -->
+    <main class="services-main">
 
         <section>
+            <img src="images/service-diagnostics.jpg"
+                srcset="images/service-diagnostics-400w.jpg 400w, images/service-diagnostics.jpg 800w"
+                sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw"
+                alt="Computer diagnostics being performed on a vehicle">
             <h2>Computer &amp; Vehicle Diagnostics</h2>
             <p>
                 Advanced electronic system scanning and fault code clearing,
                 sensor testing, and wiring diagnostics.
             </p>
-            <img src="images/service-diagnostics.jpg"
-                alt="Computer diagnostics being performed on a vehicle"
-                style="max-width: 100%; height: auto;">
         </section>
 
         <section>
+            <img src="images/service-battery.jpg"
+                srcset="images/service-battery-400w.jpg 400w, images/service-battery.jpg 800w"
+                sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw"
+                alt="Automotive batteries ready for testing and replacement">
             <h2>Battery Testing &amp; Replacement</h2>
             <p>
                 Comprehensive battery health and charge testing, plus supply
                 and installation of top-grade automotive batteries.
             </p>
-            <img src="images/service-battery.jpg"
-                alt="Automotive batteries ready for testing and replacement"
-                style="max-width: 100%; height: auto;">
         </section>
 
         <section>
+            <img src="images/service-alternator.jpg"
+                srcset="images/service-alternator-400w.jpg 400w, images/service-alternator.jpg 800w"
+                sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 30vw"
+                alt="Technician overhauling a vehicle alternator">
             <h2>Alternator &amp; Starter Motor Overhauls</h2>
             <p>
                 Complete component testing, reconditioning, and replacement,
                 plus charging and cranking system troubleshooting.
             </p>
-            <img src="images/service-alternator.jpg"
-                alt="Technician overhauling a vehicle alternator"
-                style="max-width: 100%; height: auto;">
         </section>
 
         <section>

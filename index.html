@@ -2,14 +2,22 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <!-- Makes the page responsive on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Thabo's Auto Electrical | Home</title>
-<link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts: Oswald (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Site stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -22,25 +30,42 @@
 
     <!-- Website Navigation -->
     <nav>
-        <a href= "index.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="Services.html">Services</a>
-        <a href="Enquiry.html">Enquiry</a>
-        <a href="Contact%20Us.html">Contact Us</a>
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span class="bar"></span>
+            Menu
+        </label>
+        <div class="nav-links">
+            <a href="index.html" class="current-page">Home</a>
+            <a href="About.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Enquiry.html">Enquiry</a>
+            <a href="Contact%20Us.html">Contact Us</a>
+        </div>
     </nav>
 
     <!-- Main Page Content -->
     <main>
 
-        <section>
-            <h2>Welcome</h2>
-            <p>
-                Thabo's Auto Electrical provides comprehensive auto-electrical
-                troubleshooting, computer diagnostics, battery testing and
-                replacement, wiring repairs, and alternator/starter motor
-                overhauls. We service passenger cars, light delivery bakkies,
-                taxi minibuses, and small commercial fleets.
-            </p>
+        <section class="hero-section">
+            <div>
+                <h2>Welcome</h2>
+                <p>
+                    Thabo's Auto Electrical provides comprehensive auto-electrical
+                    troubleshooting, computer diagnostics, battery testing and
+                    replacement, wiring repairs, and alternator/starter motor
+                    overhauls. We service passenger cars, light delivery bakkies,
+                    taxi minibuses, and small commercial fleets.
+                </p>
+            </div>
+            <!-- Clickable, responsive image (srcset provides a smaller file for
+                 narrow viewports so mobile devices are not forced to download
+                 the full desktop-resolution image) -->
+            <a href="Services.html">
+                <img src="images/service-diagnostics.jpg"
+                    srcset="images/service-diagnostics-400w.jpg 400w, images/service-diagnostics.jpg 800w"
+                    sizes="(max-width: 600px) 90vw, 40vw" alt="Technician performing a vehicle electrical diagnostic">
+            </a>
         </section>
 
         <section>
@@ -51,19 +76,13 @@
                 <a href="Enquiry.html">Enquiry page</a> to book a diagnostic
                 or request a quote.
             </p>
-            <!-- Clickable Image -->
-            <a href="Services.html">
-                <img src="images/service-diagnostics.jpg"
-                    alt="Technician performing a vehicle electrical diagnostic"
-                    style="max-width: 100%; height: auto;">
-            </a>
         </section>
 
-        <section>
+        <section class="hours-section">
             <h2>Operating Hours</h2>
             <p>
-                Monday – Friday: 08:00 – 17:00<br>
-                Saturday: 08:00 – 13:00<br>
+                Monday &ndash; Friday: 08:00 &ndash; 17:00<br>
+                Saturday: 08:00 &ndash; 13:00<br>
                 Sunday &amp; Public Holidays: Closed
             </p>
         </section>

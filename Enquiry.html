@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thabo's Auto Electrical | Enquiry</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,11 +25,18 @@
 
     <!-- Website Navigation -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="About.html">About</a>
-        <a href="Services.html">Services</a>
-        <a href="Enquiry.html">Enquiry</a>
-        <a href="Contact%20Us.html">Contact Us</a>
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span class="bar"></span>
+            Menu
+        </label>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Enquiry.html" class="current-page">Enquiry</a>
+            <a href="Contact%20Us.html">Contact Us</a>
+        </div>
     </nav>
 
     <!-- Main Page Content -->
@@ -36,36 +50,51 @@
                 will review your details and respond within 24 hours.
             </p>
 
-            <!-- Enquiry Form: basic structure only, no styling/validation yet (Part 3) -->
-            <form action="#" method="post">
+            <!-- Enquiry Form: structure unchanged from Part 1; validation/JS
+                 handling is out of scope for Part 2 and is addressed in Part 3 -->
+            <form action="#" method="post" class="enquiry-form">
 
-                <label for="fullname">Customer Full Name</label><br>
-                <input type="text" id="fullname" name="fullname"><br><br>
+                <div class="form-field">
+                    <label for="fullname">Customer Full Name</label>
+                    <input type="text" id="fullname" name="fullname">
+                </div>
 
-                <label for="phone">Contact Phone Number</label><br>
-                <input type="tel" id="phone" name="phone"><br><br>
+                <div class="form-field">
+                    <label for="phone">Contact Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
 
-                <label for="email">Email Address</label><br>
-                <input type="email" id="email" name="email"><br><br>
+                <div class="form-field">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                </div>
 
-                <label for="vehicle">Vehicle Make &amp; Model (e.g., Toyota HiAce / Ford Ranger)</label><br>
-                <input type="text" id="vehicle" name="vehicle"><br><br>
+                <div class="form-field">
+                    <label for="vehicle">Vehicle Make &amp; Model (e.g., Toyota HiAce / Ford Ranger)</label>
+                    <input type="text" id="vehicle" name="vehicle">
+                </div>
 
-                <label for="service">Service Required</label><br>
-                <select id="service" name="service">
-                    <option value="diagnostics">Computer Diagnostics &amp; Fault Scan</option>
-                    <option value="battery">Battery Testing &amp; Replacement</option>
-                    <option value="alternator">Alternator / Starter Motor Repairs</option>
-                    <option value="wiring">Wiring &amp; Short Circuit Troubleshooting</option>
-                    <option value="security">Security, Alarm &amp; Tracking Installation</option>
-                    <option value="inspection">General Electrical Inspection</option>
-                </select><br><br>
+                <div class="form-field">
+                    <label for="service">Service Required</label>
+                    <select id="service" name="service">
+                        <option value="diagnostics">Computer Diagnostics &amp; Fault Scan</option>
+                        <option value="battery">Battery Testing &amp; Replacement</option>
+                        <option value="alternator">Alternator / Starter Motor Repairs</option>
+                        <option value="wiring">Wiring &amp; Short Circuit Troubleshooting</option>
+                        <option value="security">Security, Alarm &amp; Tracking Installation</option>
+                        <option value="inspection">General Electrical Inspection</option>
+                    </select>
+                </div>
 
-                <label for="date">Preferred Service Date</label><br>
-                <input type="date" id="date" name="date"><br><br>
+                <div class="form-field">
+                    <label for="date">Preferred Service Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
 
-                <label for="message">Detailed Description of Issue</label><br>
-                <textarea id="message" name="message" rows="5" cols="40"></textarea><br><br>
+                <div class="form-field full-width">
+                    <label for="message">Detailed Description of Issue</label>
+                    <textarea id="message" name="message" rows="5" cols="40"></textarea>
+                </div>
 
                 <button type="submit">Send Enquiry</button>
 
