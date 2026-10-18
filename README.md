@@ -67,7 +67,6 @@ Screenshots of the website at the three main breakpoints should be included belo
 | Tablet   | ≤ 900px (56.25em) | Adjusted grid, stacked hero sections |
 | Mobile   | ≤ 600px (37.5em) | Single-column layout, CSS-only hamburger menu |
 
-> **Action required:** Capture screenshots using browser developer tools (Ctrl+Shift+M / Cmd+Option+M) at the breakpoints above and add them to this section (or place image files in the repository and link them here) before final submission.
 
 ## Changelog
 
