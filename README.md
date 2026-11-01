@@ -3,11 +3,27 @@
 **Student:** Ronald Mukanya (ST10532005)  
 **Module:** WEDE5020 — Web Development (Introduction)
 
-A five-page brochure website for Thabo's Auto Electrical, an auto-electrical repair workshop in Phuthaditjhaba, Free State. The project is built in stages across the module:
+A five-page brochure website for Thabo's Auto Electrical, an auto-electrical repair workshop in Phuthaditjhaba, Free State. The project is built in stages :
 
 - **Part 1** — Content & Structure: semantic HTML for five pages (Home, About, Services, Enquiry, Contact Us), using researched content and images.
-- **Part 2** — Designing the Visuals: an external CSS stylesheet applying typography, layout, decoration and colour for a desktop solution, plus responsive styling for tablet and mobile using relative units, media queries and breakpoints. *(this submission)*
-- **Part 3** *(future)* — Interactivity and form handling with JavaScript.
+- **Part 2** — Designing the Visuals: an external CSS stylesheet applying typography, layout, decoration and colour for a desktop solution, plus responsive styling for tablet and mobile using relative units, media queries and breakpoints. *(submitted)*
+- **Part 3** — Enhancing Functionality and SEO: JavaScript interactivity (map, lightbox, accordion, service filter, animations), validated enquiry and contact forms, SEO (titles, meta tags, robots.txt, sitemap.xml) and deployment. *(this submission)*
+
+## Part 3 Summary — Enhancing Functionality and SEO
+
+Part 3 adds JavaScript interactivity, improved forms with client-side validation and simulated AJAX responses, an interactive map, image lightbox, accordion, service filtering, comprehensive on-page SEO (title tags, meta descriptions, keywords), robots.txt, sitemap.xml, and updated documentation.
+
+### Key Features Added
+- **Interactive Map** (Contact Us.html): Leaflet.js + OpenStreetMap with workshop marker and popup.
+- **Image Lightbox**: Click any service or team image to view it enlarged; close with ×, Escape, or click outside.
+- **Accordion FAQ** (About.html): Expandable frequently asked questions.
+- **Service Filter** (Services.html): Filter cards by category (All / Diagnostics / Battery / Alternator / Wiring).
+- **Form Validation + AJAX-style responses**:
+  - Enquiry form: required fields, phone/email format checks, success message with service-specific feedback.
+  - Contact form: full message form with validation and confirmation response.
+- **SEO**: Unique title tags and meta descriptions on every page, keywords, robots meta, descriptive alt text.
+- **robots.txt** and **sitemap.xml** for search engine crawlers.
+- Scroll-triggered fade-in animations on sections.
 
 ## Website Goals and Objectives
 
@@ -45,7 +61,10 @@ ThaboAutoElectricalWebsite/
 ├── css/
 │   └── style.css          External stylesheet, linked from every page
 ├── images/                Page images + 400w resized variants for srcset
-├── js/                    Reserved for Part 3
+├── js/
+│   └── script.js          Part 3 JavaScript (map, lightbox, accordion, filter, validation)
+├── robots.txt
+├── sitemap.xml
 └── README.md
 ```
 
@@ -71,6 +90,24 @@ Screenshots of the website at the three main breakpoints should be included belo
 ## Changelog
 
 All notable changes to this project are recorded here, most recent first.
+
+### [Part 3] — Interactivity, Forms and SEO
+
+- **Added:** `js/script.js` with map, lightbox, accordion, filtering, form validation, and animation logic.
+- **Added:** Leaflet CSS/JS via CDN on Contact Us page.
+- **Added:** Contact form on Contact Us.html.
+- **Added:** FAQ accordion section on About.html.
+- **Added:** Service filter buttons and data-category attributes on Services.html.
+- **Added:** Lightbox HTML structure on pages that use images.
+- **Added:** Meta description, keywords, and robots tags on all five pages; titles optimised for local search.
+- **Added:** `robots.txt` and `sitemap.xml` in the project root.
+- **Added:** Form error styling, success response styling, map container, accordion, and lightbox styles in `css/style.css`.
+- **Changed:** Map coordinates updated from Johannesburg placeholder to Harrismith area (approx. -28.2728, 29.1294).
+- **Changed:** Enquiry and contact forms now use HTML validation (`required`, `minlength`, `type="email"`, `type="date"` with a `min` of today) first, followed by JavaScript validation; the earlier `novalidate` attribute was removed so both layers run.
+- **Added:** JavaScript validation of name length (minimum 2 characters), South African phone format, email structure, message length (minimum 10 characters), and enquiry date (not in the past and not a Sunday, as the workshop is closed).
+- **Fixed:** Services page filter buttons did not filter because the script targeted a non-existent `main.services-main` selector; it now targets `.services-grid .service-card`.
+- **Fixed:** added the missing `@keyframes fadeIn` rule in `css/style.css` used by the filter animation.
+- **Updated:** README with Part 3 summary, detailed changelog, and additional references.
 
 ### [Part 2] — CSS Styling & Responsive Design
 
@@ -108,7 +145,7 @@ Where the lecturer indicated that formal corrections could be deferred while foc
 
 ## Technical Requirements
 
-HTML5, CSS3 (external stylesheet, responsive design). JavaScript planned for Part 3.
+HTML5, CSS3 (external stylesheet, responsive design), JavaScript (ES6), Leaflet.js with OpenStreetMap.
 
 ## References
 
@@ -119,6 +156,24 @@ HTML5, CSS3 (external stylesheet, responsive design). JavaScript planned for Par
 - Mozilla Developer Network (MDN), 2026. *Responsive images*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images [Accessed 16 August 2026].
 - The Independent Institute of Education (Pty) Ltd, 2026. *Part 2 — Designing the Visuals: CSS Styling and Responsive Design* [Module task brief].
 - Unsplash, 2026. *Free automotive stock photography*. Available at: https://unsplash.com [Accessed 10 August 2026].
+
+
+### Part 3 References
+
+- Leaflet, 2026. *Leaflet — an open-source JavaScript library for mobile-friendly interactive maps*. Available at: https://leafletjs.com [Accessed 18 October 2026].
+- OpenStreetMap contributors, 2026. *OpenStreetMap*. Available at: https://www.openstreetmap.org [Accessed 18 October 2026].
+- Mozilla Developer Network (MDN), 2026. *Form validation*. Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation [Accessed 18 October 2026].
+- Mozilla Developer Network (MDN), 2026. *Intersection Observer API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API [Accessed 18 October 2026].
+- Google Search Central, 2026. *SEO Starter Guide*. Available at: https://developers.google.com/search/docs/fundamentals/seo-starter-guide [Accessed 18 October 2026].
+- The Independent Institute of Education (Pty) Ltd, 2026. *Part 3 — Enhancing Functionality and SEO* [Module task brief].
+
+### Deployment Notes
+The site is ready for free static hosting. Recommended platforms:
+- **Netlify** (drag-and-drop the project folder or connect the GitHub repo)
+- **GitHub Pages**
+- **Cloudflare Pages**
+
+After deployment, update the URLs in `robots.txt` and `sitemap.xml` to your live domain.
 
 ---
 © 2026 Thabo's Auto Electrical. All rights reserved.
