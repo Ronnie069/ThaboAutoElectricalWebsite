@@ -4,26 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thabo's Auto Electrical | Enquiry</title>
+    <title>Book an Enquiry | Thabo's Auto Electrical — Request a Quote</title>
+    <meta name="description" content="Request a quote or book a service appointment with Thabo's Auto Electrical. Fill in our online form for diagnostics, battery, alternator or wiring repairs. Fast response within 24 hours.">
+    <meta name="keywords" content="book auto electrician, request quote, vehicle diagnostics booking, Harrismith auto electrical">
+    <meta name="robots" content="index, follow">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Website Header -->
     <header>
         <h1>Thabo's Auto Electrical</h1>
         <p>Book a Service Enquiry</p>
     </header>
 
-    <!-- Website Navigation -->
     <nav>
         <input type="checkbox" id="nav-toggle">
         <label for="nav-toggle" class="nav-toggle-label">
@@ -39,9 +38,7 @@
         </div>
     </nav>
 
-    <!-- Main Page Content -->
     <main>
-
         <section>
             <h2>Request a Quote or Booking</h2>
             <p>
@@ -50,64 +47,62 @@
                 will review your details and respond within 24 hours.
             </p>
 
-            <!-- Enquiry Form: structure unchanged from Part 1; validation/JS
-                 handling is out of scope for Part 2 and is addressed in Part 3 -->
-            <form action="#" method="post" class="enquiry-form">
-
+            <form id="enquiry-form" class="enquiry-form" action="#" method="post">
                 <div class="form-field">
                     <label for="fullname">Customer Full Name</label>
-                    <input type="text" id="fullname" name="fullname">
+                    <input type="text" id="fullname" name="fullname" required minlength="2" autocomplete="name">
                 </div>
 
                 <div class="form-field">
                     <label for="phone">Contact Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
+                    <input type="tel" id="phone" name="phone" required placeholder="e.g. 082 123 4567" autocomplete="tel">
                 </div>
 
                 <div class="form-field">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required autocomplete="email">
                 </div>
 
                 <div class="form-field">
-                    <label for="vehicle">Vehicle Make &amp; Model (e.g., Toyota HiAce / Ford Ranger)</label>
-                    <input type="text" id="vehicle" name="vehicle">
+                    <label for="vehicle">Vehicle Make & Model</label>
+                    <input type="text" id="vehicle" name="vehicle" required placeholder="e.g. Toyota HiAce / Ford Ranger">
                 </div>
 
                 <div class="form-field">
                     <label for="service">Service Required</label>
-                    <select id="service" name="service">
-                        <option value="diagnostics">Computer Diagnostics &amp; Fault Scan</option>
-                        <option value="battery">Battery Testing &amp; Replacement</option>
+                    <select id="service" name="service" required>
+                        <option value="">-- Select a service --</option>
+                        <option value="diagnostics">Computer Diagnostics & Fault Scan</option>
+                        <option value="battery">Battery Testing & Replacement</option>
                         <option value="alternator">Alternator / Starter Motor Repairs</option>
-                        <option value="wiring">Wiring &amp; Short Circuit Troubleshooting</option>
-                        <option value="security">Security, Alarm &amp; Tracking Installation</option>
+                        <option value="wiring">Wiring & Short Circuit Troubleshooting</option>
+                        <option value="security">Security, Alarm & Tracking Installation</option>
                         <option value="inspection">General Electrical Inspection</option>
                     </select>
                 </div>
 
                 <div class="form-field">
                     <label for="date">Preferred Service Date</label>
-                    <input type="date" id="date" name="date">
+                    <input type="date" id="date" name="date" required>
                 </div>
 
                 <div class="form-field full-width">
                     <label for="message">Detailed Description of Issue</label>
-                    <textarea id="message" name="message" rows="5" cols="40"></textarea>
+                    <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Describe the symptoms, warning lights, or what happened..."></textarea>
                 </div>
 
-                <button type="submit">Send Enquiry</button>
+                <div class="form-response" role="status" aria-live="polite"></div>
 
+                <button type="submit">Send Enquiry</button>
             </form>
         </section>
-
     </main>
 
-    <!-- Website Footer -->
     <footer>
         <p>&copy; 2026 Thabo's Auto Electrical. All rights reserved.</p>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 
 </html>
