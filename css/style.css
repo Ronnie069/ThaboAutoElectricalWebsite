@@ -1,6 +1,7 @@
 /* ==========================================================================
    Thabo's Auto Electrical — style.css
    Part 2: Desktop CSS styling + responsive (tablet/mobile) design
+   Part 3 additions: lightbox, accordion, map, form feedback, SEO-related polish
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -56,6 +57,8 @@ a {
     --colour-text: #1c2126;
     --colour-text-muted: #4b545d;
     --colour-border: #d7dde2;
+    --colour-error: #c0392b;
+    --colour-success: #27ae60;
 
     --font-display: "Oswald", "Arial Narrow", Impact, sans-serif;
     --font-body: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -269,7 +272,7 @@ footer {
 /* --------------------------------------------------------------------------
    5. Services Page — card grid
    -------------------------------------------------------------------------- */
-main.services-main {
+.services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1.75rem;
@@ -278,7 +281,7 @@ main.services-main {
     margin-inline: auto;
 }
 
-main.services-main>section {
+.services-grid > section {
     background-color: var(--colour-white);
     border: 1px solid var(--colour-border);
     border-radius: var(--radius-md);
@@ -290,31 +293,63 @@ main.services-main>section {
     flex-direction: column;
 }
 
-main.services-main>section:hover {
+.services-grid > section:hover {
     transform: translateY(-0.25rem);
     box-shadow: var(--shadow-card-hover);
 }
 
-main.services-main>section img {
+.services-grid > section img {
     aspect-ratio: 4 / 3;
     object-fit: cover;
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
 }
 
-main.services-main>section h2,
-main.services-main>section p {
+.services-grid > section img:hover {
+    opacity: 0.9;
+}
+
+.services-grid > section h2,
+.services-grid > section p {
     padding-inline: 1.25rem;
 }
 
-main.services-main>section h2 {
+.services-grid > section h2 {
     margin-top: 1.25rem;
 }
 
-main.services-main>section p {
+.services-grid > section p {
     padding-bottom: 1.25rem;
 }
 
+/* Filter buttons for services */
+.service-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.service-filters button {
+    font-family: var(--font-body);
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--colour-border);
+    background: var(--colour-white);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.service-filters button.active,
+.service-filters button:hover {
+    background: var(--colour-amber-500);
+    border-color: var(--colour-amber-500);
+    color: var(--colour-charcoal-900);
+}
+
 /* --------------------------------------------------------------------------
-   6. About Page — values grid
+   6. About Page — values grid + accordion
    -------------------------------------------------------------------------- */
 .about-hero {
     display: grid;
@@ -347,10 +382,66 @@ main.services-main>section p {
     font-weight: 700;
 }
 
+/* Accordion */
+.accordion {
+    border: 1px solid var(--colour-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--colour-white);
+}
+
+.accordion-item + .accordion-item {
+    border-top: 1px solid var(--colour-border);
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    background: var(--colour-steel-50);
+    border: none;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background var(--transition-fast);
+}
+
+.accordion-header:hover,
+.accordion-header.active {
+    background: var(--colour-amber-500);
+    color: var(--colour-charcoal-900);
+}
+
+.accordion-header::after {
+    content: "+";
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.accordion-header.active::after {
+    content: "−";
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-med) ease;
+    padding: 0 1.25rem;
+}
+
+.accordion-content p {
+    padding: 0.75rem 0 1rem;
+    max-width: none;
+}
+
 /* --------------------------------------------------------------------------
-   7. Enquiry Page — form styling
+   7. Enquiry & Contact Forms
    -------------------------------------------------------------------------- */
-.enquiry-form {
+.enquiry-form,
+.contact-form {
     background-color: var(--colour-white);
     border: 1px solid var(--colour-border);
     border-radius: var(--radius-md);
@@ -392,10 +483,9 @@ main.services-main>section p {
 
 .form-field textarea {
     resize: vertical;
-    min-height: 7rem;
+    min-height: 120px;
 }
 
-/* Pseudo-classes: focus state on form controls */
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus {
@@ -409,6 +499,23 @@ main.services-main>section p {
 .form-field select:hover,
 .form-field textarea:hover {
     border-color: var(--colour-circuit-700);
+}
+
+.form-field.error input,
+.form-field.error select,
+.form-field.error textarea {
+    border-color: var(--colour-error);
+}
+
+.error-message {
+    color: var(--colour-error);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-field.error .error-message {
+    display: block;
 }
 
 button[type="submit"] {
@@ -438,8 +545,35 @@ button[type="submit"]:focus-visible {
     outline-offset: 0.1875rem;
 }
 
+button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-response {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    display: none;
+    font-weight: 500;
+}
+
+.form-response.success {
+    background: #e8f8ef;
+    color: var(--colour-success);
+    border: 1px solid var(--colour-success);
+    display: block;
+}
+
+.form-response.error {
+    background: #fdedec;
+    color: var(--colour-error);
+    border: 1px solid var(--colour-error);
+    display: block;
+}
+
 /* --------------------------------------------------------------------------
-   8. Contact Page — info grid
+   8. Contact Page — info grid + map
    -------------------------------------------------------------------------- */
 .contact-main {
     display: grid;
@@ -467,9 +601,54 @@ button[type="submit"]:focus-visible {
     border-bottom-color: currentColor;
 }
 
-/* ==========================================================================
-   9. Responsive Design — Tablet & Mobile Breakpoints
-   ========================================================================== */
+#map {
+    height: 320px;
+    width: 100%;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--colour-border);
+    margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Lightbox Gallery
+   -------------------------------------------------------------------------- */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 24, 29, 0.92);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Design — Tablet & Mobile Breakpoints
+   -------------------------------------------------------------------------- */
 
 /* ---- Tablet: <= 900px ------------------------------------------------- */
 @media screen and (max-width: 56.25em) {
@@ -481,7 +660,8 @@ button[type="submit"]:focus-visible {
         grid-template-columns: 1fr;
     }
 
-    .enquiry-form {
+    .enquiry-form,
+    .contact-form {
         grid-template-columns: 1fr;
     }
 
@@ -489,7 +669,7 @@ button[type="submit"]:focus-visible {
         grid-column: auto;
     }
 
-    main.services-main {
+    .services-grid {
         grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
     }
 }
@@ -587,18 +767,24 @@ button[type="submit"]:focus-visible {
         gap: 1.25rem;
     }
 
-    main.services-main,
+    .services-grid,
     .values-list,
     .contact-main {
         grid-template-columns: 1fr;
     }
 
-    .enquiry-form {
-        padding: 1.5rem;
+    .enquiry-form,
+    .contact-form {
+        padding: 1.25rem;
     }
 
-    button[type="submit"] {
-        justify-self: stretch;
-        text-align: center;
+    #map {
+        height: 260px;
     }
+}
+
+/* Fade-in used when service cards are filtered (Services page) */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
