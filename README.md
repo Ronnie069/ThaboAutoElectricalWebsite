@@ -1,9 +1,11 @@
 # Thabo's Auto Electrical — Website Project
 
 **Student:** Ronald Mukanya (ST10532005)  
-**Module:** WEDE5020 — Web Development (Introduction)
+**Module:** WEDE5020 — Web Development (Introduction)  
+**Live site:** https://dreamy-jelly-fbc50e.netlify.app  
+**GitHub repository:** https://github.com/Ronnie069/ThaboAutoElectricalWebsite
 
-A five-page brochure website for Thabo's Auto Electrical, an auto-electrical repair workshop in Phuthaditjhaba, Free State. The project is built in stages :
+A five-page brochure website for Thabo's Auto Electrical, an auto-electrical repair workshop in Phuthaditjhaba, Free State. The project is built in stages across the module:
 
 - **Part 1** — Content & Structure: semantic HTML for five pages (Home, About, Services, Enquiry, Contact Us), using researched content and images.
 - **Part 2** — Designing the Visuals: an external CSS stylesheet applying typography, layout, decoration and colour for a desktop solution, plus responsive styling for tablet and mobile using relative units, media queries and breakpoints. *(submitted)*
@@ -78,7 +80,7 @@ ThaboAutoElectricalWebsite/
 
 ## Responsive Design Evidence
 
-Screenshots of the website at the three main breakpoints should be included below after final testing:
+The layout was tested in browser developer tools at the three main breakpoints:
 
 | Viewport | Width | Description |
 |----------|-------|-------------|
@@ -107,6 +109,8 @@ All notable changes to this project are recorded here, most recent first.
 - **Added:** JavaScript validation of name length (minimum 2 characters), South African phone format, email structure, message length (minimum 10 characters), and enquiry date (not in the past and not a Sunday, as the workshop is closed).
 - **Fixed:** Services page filter buttons did not filter because the script targeted a non-existent `main.services-main` selector; it now targets `.services-grid .service-card`.
 - **Fixed:** added the missing `@keyframes fadeIn` rule in `css/style.css` used by the filter animation.
+- **Updated:** `robots.txt` and `sitemap.xml` now use the live Netlify address instead of the placeholder URL.
+- **Added:** Deployed the website on Netlify and added the live link to this README.
 - **Updated:** README with Part 3 summary, detailed changelog, and additional references.
 
 ### [Part 2] — CSS Styling & Responsive Design
@@ -165,15 +169,16 @@ HTML5, CSS3 (external stylesheet, responsive design), JavaScript (ES6), Leaflet.
 - Mozilla Developer Network (MDN), 2026. *Form validation*. Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation [Accessed 18 October 2026].
 - Mozilla Developer Network (MDN), 2026. *Intersection Observer API*. Available at: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API [Accessed 18 October 2026].
 - Google Search Central, 2026. *SEO Starter Guide*. Available at: https://developers.google.com/search/docs/fundamentals/seo-starter-guide [Accessed 18 October 2026].
+- Netlify, 2026. *Netlify Docs: Deploy sites*. Available at: https://docs.netlify.com [Accessed 1 November 2026].
 - The Independent Institute of Education (Pty) Ltd, 2026. *Part 3 — Enhancing Functionality and SEO* [Module task brief].
 
 ### Deployment Notes
-The site is ready for free static hosting. Recommended platforms:
+The site is deployed on free static hosting. Other suitable platforms are:
 - **Netlify** (drag-and-drop the project folder or connect the GitHub repo)
 - **GitHub Pages**
 - **Cloudflare Pages**
 
-After deployment, update the URLs in `robots.txt` and `sitemap.xml` to your live domain.
+**Live site:** https://dreamy-jelly-fbc50e.netlify.app (deployed on Netlify). The URLs in `robots.txt` and `sitemap.xml` point to this address.
 
 ---
 © 2026 Thabo's Auto Electrical. All rights reserved.
